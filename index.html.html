@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>תהילת השם</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e0f2f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .iphone-frame {
+      width: 375px;
+      height: 667px;
+      background: linear-gradient(to bottom, #a8e6cf, #26a69a);
+      border-radius: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-family: 'BA Vilna';
+      color: #0b0055;
+      font-size: 40px;
+      text-align: center;
+      margin: 0;
+      padding: 15px 0;
+    }
+
+    button {
+      width: 220px;
+      padding: 15px;
+      margin: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'BA Vilna';
+      color: white;
+      background: #00796b;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #004d40;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    button:active {
+      transform: scale(1.05);
+    }
+
+    .screen {
+      display: none;
+      flex: 1;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    .pdf-container {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #a8e6cf, #26a69a);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #26a69a;
+    }
+
+    .home-button {
+      margin-top: 10px;
+      background: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <div class="iphone-frame">
+
+    <!-- מסך הבית -->
+    <div id="home" class="screen active">
+      <h1>תהילת השם</h1>
+      <button onclick="showScreen('brakot')">ברכות השחר</button>
+      <button onclick="showScreen('shacharit')">שחרית</button>
+      <button onclick="showScreen('mincha')">מנחה</button>
+      <button onclick="showScreen('maariv')">ערבית</button>
+      <button onclick="showScreen('birkhat_hamazon')">ברכת המזון</button>
+      <button onclick="showScreen('ravino_tem')">רבינו תם</button>
+    </div>
+
+    <!-- ברכות השחר -->
+    <div id="brakot" class="screen">
+      <h1>ברכות השחר</h1>
+      <div class="pdf-container">
+        <iframe src="https://drive.google.com/file/d/13Kpvva08LFNE4gJL9gOk1hE98XDcwEQ1/preview"></iframe>
+      </div>
+      <button class="home-button" onclick="showScreen('home')">בית</button>
+    </div>
+
+    <!-- שחרית -->
+    <div id="shacharit" class="screen">
+      <h1>שחרית</h1>
+      <div class="pdf-container">
+        <iframe src="https://drive.google.com/file/d/1uRRB5-Y5SpjWRGHTVeyT4KQgcT7922nw/preview"></iframe>
+      </div>
+      <button class="home-button" onclick="showScreen('home')">בית</button>
+    </div>
+
+    <!-- מנחה -->
+    <div id="mincha" class="screen">
+      <h1>מנחה</h1>
+      <div class="pdf-container">
+        <iframe src="https://drive.google.com/file/d/1lzyah9dn7IpbU0Eo8Vrk4ZWN7-jfEIYt/preview"></iframe>
+      </div>
+      <button class="home-button" onclick="showScreen('home')">בית</button>
+    </div>
+
+    <!-- ערבית -->
+    <div id="maariv" class="screen">
+      <h1>ערבית</h1>
+      <div class="pdf-container">
+        <iframe src="https://drive.google.com/file/d/1UStxOzMT8UTUnIVtcfJL6l3ZHhn26tlj/preview"></iframe>
+      </div>
+      <button class="home-button" onclick="showScreen('home')">בית</button>
+    </div>
+
+    <!-- ברכת המזון -->
+    <div id="birkhat_hamazon" class="screen">
+      <h1>ברכת המזון</h1>
+      <div class="pdf-container">
+        <iframe src="https://drive.google.com/file/d/1gEGcgb0yObQoKCtNSjvcfX4O0tolmy7i/preview"></iframe>
+      </div>
+      <button class="home-button" onclick="showScreen('home')">בית</button>
+    </div>
+
+    <!-- רבינו תם -->
+    <div id="ravino_tem" class="screen">
+      <h1>רבינו תם</h1>
+      <div class="pdf-container">
+        <iframe src="https://drive.google.com/file/d/1AiFYH92GEbx2WUYJ14Ze_ufbo09Q0bYf/preview"></iframe>
+      </div>
+      <button class="home-button" onclick="showScreen('home')">בית</button>
+    </div>
+
+  </div>
+
+  <script>
+    function showScreen(screenId) {
+      const screens = document.querySelectorAll('.screen');
+      screens.forEach(s => s.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
